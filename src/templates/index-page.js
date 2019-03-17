@@ -4,14 +4,14 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import ContactForm from '../components/ContactForm';
-
+import ProjectRoll from '../components/ProjectRoll';
 
 import InteractiveHero from '../components/InteractiveHero';
 import Background from '../img/hero.svg';
 import HexBottomLeft from '../img/HexBottomLeft.svg';
 import HexTop from '../img/HexTopLeft.svg';
 import HexRight from '../img/HexRight.svg';
-import ContactHexTop from '../img/contactHexTop.svg';
+
 import ContactHexBottom from '../img/contactHexBottom.svg';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 
@@ -40,67 +40,7 @@ export const IndexPageTemplate = ({
               <div className="hex hex-right"><HexRight/></div>
           </div>
       </section>
-      <section id="work" className="row overflow-hidden">
-          <div className="dark-bg work-top-wrap">
-              <div className="col-12 text-center">
-                  <h1 className="sectionTitle sectionTitle--light">Work.<span></span></h1>
-              </div>
-              <div className="col-12 text-center z-2">
-                  <p className="d-inline-block lead lead-light mb-3">Select A Category:</p>
-                  <ul className="nav justify-content-center button-list">
-                      <li className="nav-item"><button>Category Name</button></li>
-                      <li className="nav-item"><button>Category Name</button></li>
-                      <li className="nav-item"><button className="active">Category Name</button></li>
-                  </ul>
-              </div>
-          </div>
-          <div className="col-12">
-              <div className="row card-holder">
-                  <div className="col-12 col-md-6">
-                      <div className="card">
-                          <img src="http://placehold.it/300x300" alt=""/>
-                          <div className="card__text">
-                              <h2>Card Name</h2>
-                              <p>Card Category</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-12 col-md-6">
-                      <div className="card">
-                          <img src="http://placehold.it/300x300" alt=""/>
-                          <div className="card__text">
-                              <h2>Card Name</h2>
-                              <p>Card Category</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-12 col-md-6">
-                      <div className="card">
-                          <img src="http://placehold.it/300x300" alt=""/>
-                          <div className="card__text">
-                              <h2>Card Name</h2>
-                              <p>Card Category</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-12 col-md-6">
-                      <div className="card">
-                          <img src="http://placehold.it/300x300" alt=""/>
-                          <div className="card__text">
-                              <h2>Card Name</h2>
-                              <p>Card Category</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div className="row z-2">
-                  <div className="col-12 text-center">
-                      <button className="btn btn-green">Load More</button>
-                  </div>
-              </div>
-          </div>
-          <ContactHexTop className="hex hex-top-right"/>
-      </section>
+      <ProjectRoll/>
       <section id="contact" className="row padding-inner position-relative overflow-hidden container-radius-bottom">
           <div className="col-12 text-center z-2">
               <h1 className="sectionTitle sectionTitle--dark">Contact.<span></span></h1>

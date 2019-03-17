@@ -63,6 +63,10 @@
     box-shadow: 0px 0px 0px 0px black;
     transform: scale(.989);
   }
+  img{
+    max-width: 100%;
+    height: auto;
+  }
   .card__text{
     background: $muted-blue;
     padding: 1rem;

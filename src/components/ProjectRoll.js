@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
+import ContactHexTop from '../img/contactHexTop.svg';
 
 class ProjectRoll extends React.Component {
 
@@ -9,33 +10,42 @@ class ProjectRoll extends React.Component {
         const { edges: posts } = data.allMarkdownRemark
 
         return (
-            <div className="columns is-multiline">
-                {posts && (posts
-                    .map(({ node: post }) => (
-                        <div
-                            className="is-parent column is-6"
-                            key={post.id}
-                        >
-                            <article className="tile is-child box notification">
-                                <p>
-                                    <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
-                                        {post.frontmatter.title}
-                                    </Link>
-                                    <span> &bull; </span>
-                                    <span className="subtitle is-size-5 is-block">{post.frontmatter.date}</span>
-                                </p>
-                                <p>
-                                    {post.excerpt}
-                                    <br />
-                                    <br />
-                                    <Link className="button" to={post.fields.slug}>
-                                        Keep Reading →
-                                    </Link>
-                                </p>
-                            </article>
+            <section id="work" className="row overflow-hidden">
+                <div className="dark-bg work-top-wrap">
+                    <div className="col-12 text-center">
+                        <h1 className="sectionTitle sectionTitle--light">Work.<span></span></h1>
+                    </div>
+                    <div className="col-12 text-center z-2">
+                        <p className="d-inline-block lead lead-light mb-3">Select A Category:</p>
+                        <ul className="nav justify-content-center button-list">
+                            <li className="nav-item"><button>Category Name</button></li>
+                            <li className="nav-item"><button>Category Name</button></li>
+                            <li className="nav-item"><button className="active">Category Name</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="col-12">
+                    <div className="row card-holder">
+                        {posts && (posts.map(({node: post})=> (
+                            <div className="col-12 col-md-6">
+                                <div className="card">
+                                    <img src={post.frontmatter['full_image'].publicURL} alt="project preview image"/>
+                                    <div className="card__text">
+                                        <h2>{post.frontmatter.title}</h2>
+                                        <p>Card Category</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )))}
+                    </div>
+                    <div className="row z-2">
+                        <div className="col-12 text-center">
+                            <button className="btn btn-green">Load More</button>
                         </div>
-                    )))}
-            </div>
+                    </div>
+                </div>
+                <ContactHexTop className="hex hex-top-right"/>
+            </section>
         );
     }
 }
@@ -67,6 +77,10 @@ export default () => (
               title
               templateKey
               date(formatString: "MMMM DD, YYYY")
+              tags
+              full_image{
+                publicURL
+              }
             }
           }
         }
