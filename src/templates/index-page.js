@@ -3,124 +3,128 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
+import ContactForm from '../components/ContactForm';
+
+
+import InteractiveHero from '../components/InteractiveHero';
+import Background from '../img/hero.svg';
+import HexBottomLeft from '../img/HexBottomLeft.svg';
+import HexTop from '../img/HexTopLeft.svg';
+import HexRight from '../img/HexRight.svg';
+import ContactHexTop from '../img/contactHexTop.svg';
+import ContactHexBottom from '../img/contactHexBottom.svg';
+import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
+
+
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 
+
+
 export const IndexPageTemplate = ({
-  image,
-  title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
-  main,
+    herotext,
+    tagline
 }) => (
-    <div>
-        <div
-          className="full-width-image margin-top-0"
-          style={{
-            backgroundImage: `url(${
-              !!image.childImageSharp
-                ? image.childImageSharp.fluid.src
-                : image
-            })`,
-            backgroundPosition: `top left`,
-            backgroundAttachment: `fixed`,
-          }}
-    >
-  <div style={{
-        display: 'flex',
-        height: '150px',
-        lineHeight: '1',
-        justifyContent: 'space-around',
-        alignItems: 'left',
-        flexDirection: 'column' }}>
-      <h1
-        className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-        style={{
-          boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-          backgroundColor: 'rgb(255, 68, 0)',
-          color: 'white',
-          lineHeight: '1',
-          padding: '0.25em'
-        }}
-      >
-        {title}
-      </h1>
-      <h3 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em'
-          }}
-      >
-        {subheading}
-      </h3>
-      </div>
-    </div>
-  <section className="section section--gradient">
-    <div className="container">
-      <div className="section">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="content">
-              <div className="content">
-                <div className="tile">
-                  <h1 className="title">{mainpitch.title}</h1>
-                </div>
-                <div className="tile">
-                  <h3 className="subtitle">{mainpitch.description}</h3>
-                </div>
+  <div className="container main-content">
+      <section className="row">
+          <div className="jumbotron d-flex flex-column justify-content-end container-radius">
+              <div className="jumbotron__text-wrap text-center">
+                  <h1 style={{fontFamily:'Roboto Mono'}}>{herotext}</h1>
+                  <p>{tagline}</p>
               </div>
-              <div className="columns">
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    {heading}
-                  </h3>
-                  <p>{description}</p>
-                </div>
+              <div className="desk-svg">
+                  <InteractiveHero/>
               </div>
-              <Features gridItems={intro.blurbs} />
-              <div className="columns">
-              <div className="column is-12 has-text-centered">
-                <Link className="btn" to="/products">
-                  See all products
-                </Link>
-                </div>
+              <div className="hex hex-bottom-left"> <HexBottomLeft/></div>
+              <div className="hex hex-top"><HexTop/></div>
+              <div className="hex hex-right"><HexRight/></div>
+          </div>
+      </section>
+      <section id="work" className="row overflow-hidden">
+          <div className="dark-bg work-top-wrap">
+              <div className="col-12 text-center">
+                  <h1 className="sectionTitle sectionTitle--light">Work.<span></span></h1>
               </div>
-              <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                  <Link className="btn" to="/blog">
-                    Read more
-                  </Link>
-                  </div>
-              </div>
+              <div className="col-12 text-center z-2">
+                  <p className="d-inline-block lead lead-light mb-3">Select A Category:</p>
+                  <ul className="nav justify-content-center button-list">
+                      <li className="nav-item"><button>Category Name</button></li>
+                      <li className="nav-item"><button>Category Name</button></li>
+                      <li className="nav-item"><button className="active">Category Name</button></li>
+                  </ul>
               </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div className="col-12">
+              <div className="row card-holder">
+                  <div className="col-12 col-md-6">
+                      <div className="card">
+                          <img src="http://placehold.it/300x300" alt=""/>
+                          <div className="card__text">
+                              <h2>Card Name</h2>
+                              <p>Card Category</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                      <div className="card">
+                          <img src="http://placehold.it/300x300" alt=""/>
+                          <div className="card__text">
+                              <h2>Card Name</h2>
+                              <p>Card Category</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                      <div className="card">
+                          <img src="http://placehold.it/300x300" alt=""/>
+                          <div className="card__text">
+                              <h2>Card Name</h2>
+                              <p>Card Category</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                      <div className="card">
+                          <img src="http://placehold.it/300x300" alt=""/>
+                          <div className="card__text">
+                              <h2>Card Name</h2>
+                              <p>Card Category</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div className="row z-2">
+                  <div className="col-12 text-center">
+                      <button className="btn btn-green">Load More</button>
+                  </div>
+              </div>
+          </div>
+          <ContactHexTop className="hex hex-top-right"/>
+      </section>
+      <section id="contact" className="row padding-inner position-relative overflow-hidden container-radius-bottom">
+          <div className="col-12 text-center z-2">
+              <h1 className="sectionTitle sectionTitle--dark">Contact.<span></span></h1>
+          </div>
+          <div className="col-12 col-md-6 z-2">
+            <p>Let’s get in touch! Connect with me through the form on the right or via the platforms below</p>
+              <div className="social d-flex justify-content-center">
+                  <a href="#" target="_blank"><FaGithub/>Github</a>
+                  <a href="#" target="_blank"><FaLinkedin/>LinkedIn</a>
+                  <a href="#" target="_blank"><FaTwitter/>Twitter</a>
+              </div>
+          </div>
+          <div className="col-12 col-md-6 z-2">
+              <ContactForm/>
+          </div>
+
+          <ContactHexBottom className="hex hex-bottom-left"/>
+      </section>
   </div>
 )
 
 IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+  herotext: PropTypes.string,
+  tagline: PropTypes.string,
 }
 
 const IndexPage = ({ data }) => {
@@ -129,13 +133,8 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        herotext={frontmatter.herotext}
+        tagline={frontmatter.tagline}
       />
     </Layout>
   )
@@ -154,37 +153,10 @@ export default IndexPage
 export const pageQuery = graphql`
 query IndexPageTemplate {
   markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
-      frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
-      }
+      frontmatter{
+          herotext
+          tagline
     }
   }
+}
 `
