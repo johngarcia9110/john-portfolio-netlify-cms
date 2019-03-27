@@ -2,6 +2,7 @@
   background: $background;
   padding-bottom: 14rem;
   position: relative;
+  margin-top: -1rem;
 }
 
 .z-2{
@@ -16,8 +17,7 @@
 }
 
 .card-holder{
-  padding: 5rem 15px;
-  transform: skew(-6deg) rotate(-6deg) translateZ(0);;
+  padding: 7rem 15px 7rem 15px;
   box-sizing: border-box;
   transform-style: preserve-3d;
   position: relative;
@@ -26,7 +26,8 @@
   -webkit-backface-visibility: hidden;
   will-change: transform;
   -webkit-perspective: 1000;
-  margin-bottom: -2rem;
+  margin-bottom: 1rem;
+
   &:before{
     content: '';
     position: absolute;
@@ -36,7 +37,7 @@
     background: darken($primary-blue, 20%);
     height: 100%;
     z-index: -1;
-    transform: skew(12deg) rotate(12deg) translateZ(0) scale(1.02);
+    transform: skew(12deg) rotate(12deg) translateZ(0);
   }
   &:after{
     content: '';
@@ -44,39 +45,46 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: darken($primary-blue, 10%);
+    background: linear-gradient(#206ac5, #2468b8);
     height: 100%;
     z-index: -1;
-    transform: skew(0) rotate(0) translateZ(0);
+    transform: skew(-6deg) rotate(-6deg) translateZ(0);
   }
 }
 
 .card{
   border: none;
-  //box-shadow: 0px 9px 30px -18px black;
   margin-bottom: 30px;
-  border-radius: 2px;
+  border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
   transition: 300ms ease-in-out;
-  &:hover{
-    box-shadow: 0px 0px 0px 0px black;
-    transform: scale(.989);
-  }
+  box-shadow: 0px 14px 30px -16px #123661;
+  outline: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  -webkit-perspective: 1000;
   img{
     max-width: 100%;
-    height: auto;
+    height: 300px;
   }
   .card__text{
-    background: $muted-blue;
+    background: white;
     padding: 1rem;
+    width: 100%;
     h2{
       color: $primary-dark-blue;
       margin-bottom: 0;
+      font-size: 1.8rem;
+      font-weight: bold;
     }
     p{
-      color: white;
+      color: $primary-blue;
       margin-bottom: 0;
     }
+  }
+  &:hover{
+    box-shadow: 0px 0px 0px 0px #123661;
+    transform: scale(.989);
   }
 }

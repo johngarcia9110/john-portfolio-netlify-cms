@@ -17,32 +17,21 @@ export const ProjectPostTemplate = ({
     const PostContent = contentComponent || Content
 
     return (
-        <section className="section">
-            {helmet || ''}
-            <div className="container content">
-                <div className="columns">
-                    <div className="column is-10 is-offset-1">
-                        <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                            {title}
-                        </h1>
-                        <p>{description}</p>
-                        <PostContent content={content} />
-                        {tags && tags.length ? (
-                            <div style={{ marginTop: `4rem` }}>
-                                <h4>Tags</h4>
-                                <ul className="taglist">
-                                    {tags.map(tag => (
-                                        <li key={tag + `tag`}>
-                                            <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ) : null}
-                    </div>
+        <div className="container main-content">
+            <section className="section row">
+                {helmet || ''}
+                <div className="project-image">
+                    <img className="w-100" src="http://placehold.it/1000x400" alt=""/>
                 </div>
-            </div>
-        </section>
+                <div className="project-title col-12">
+                    <h1>test{title}</h1>
+                </div>
+                <div className="col-12 col-lg-12 content">
+                    <p>{description}</p>
+                    <PostContent content={content} />
+                </div>
+            </section>
+        </div>
     )
 }
 

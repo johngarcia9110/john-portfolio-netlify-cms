@@ -27,10 +27,20 @@
 .social{
   a{
     color: $primary-dark-blue;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     padding: 0 1rem;
     svg{
       margin-right: 10px;
+    }
+  }
+  button{
+    background: transparent;
+    border: 2px solid $primary-dark-blue;
+    border-radius: 4px;
+    box-shadow: none;
+    font-size: 1.6rem;
+    &:focus{
+      outline: none;
     }
   }
 }

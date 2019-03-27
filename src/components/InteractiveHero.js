@@ -22,11 +22,15 @@ const InteractiveHero = class extends React.Component{
                         document.getElementById('work').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
                         return;
                     case "myAbout":
+                        document.getElementById('contact').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
                         return;
                     default:
                         return;
                 }
             });
+            myButtons[i].addEventListener('mouseover', (e)=>{
+                myButtons[i].classList.remove('hint');
+            })
         }
     }
     componentWillUnmount(){

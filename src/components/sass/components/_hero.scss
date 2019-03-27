@@ -13,9 +13,12 @@
     margin-bottom: 10rem;
     h1{
       font-size: 3.5rem;
+      text-transform: uppercase;
     }
     p{
       font-size: 1.5rem;
+      background: $muted-yellow;
+      padding: 0 1rem;
     }
   }
   .desk-svg{
@@ -60,6 +63,13 @@
   transform: scale(.9);
   transform-origin: center top;
   transition: all 400ms ease-in-out;
+  path{
+    opacity: 0;
+  }
+  &.hint{
+    animation: hint 2s ease-in-out;
+    animation-iteration-count: infinite;
+  }
   &:hover{
     opacity: 1;
     cursor: pointer;
@@ -67,6 +77,17 @@
   }
 }
 
+@keyframes hint {
+  0%{
+    opacity: .4;
+  }
+  50%{
+    opacity: .8;
+  }
+  100%{
+    opacity: .4;
+  }
+}
 
 @keyframes hover {
   0%{
