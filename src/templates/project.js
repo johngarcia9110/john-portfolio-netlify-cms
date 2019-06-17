@@ -20,11 +20,10 @@ export const ProjectPostTemplate = ({
         <div className="container main-content">
             <section className="section row">
                 {helmet || ''}
-                <div className="project-image">
-                    <img className="w-100" src="http://placehold.it/1000x400" alt=""/>
-                </div>
-                <div className="project-title col-12">
-                    <h1>test{title}</h1>
+                <div className="project-image w-100">
+                    <div className="project-title text-center">
+                        <h1 className="d-inline-block">{title}</h1>
+                    </div>
                 </div>
                 <div className="col-12 col-lg-12 content">
                     <p>{description}</p>

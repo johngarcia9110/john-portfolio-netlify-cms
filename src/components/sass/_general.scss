@@ -9,9 +9,13 @@ body{
 
 .main-content{
   background: $background;
-  margin-top: 4rem;
+  margin-top: 110px;
   border-radius: 10px;
   overflow: hidden;
+  @include media-breakpoint-down(md){
+    margin-top: 74px;
+    border-radius: 0;
+  }
 }
 
 .dark-bg{
@@ -146,13 +150,20 @@ body{
 
 .toTop{
   position: fixed;
-  bottom: 0;
   right: 10px;
   background: $primary-dark-blue;
-  color: white;
-  padding: 1rem 2rem;
   border: 0;
-  border-radius: 4px 4px 0px 0px;
   cursor: pointer;
   z-index: 9999;
+  background: white;
+  border-radius: 50px;
+  color: #1c508d;
+  padding: .5rem 1rem;
+  bottom: 10px;
+  box-shadow: 0 0 10px -13px #1c508dc2, 0 0 40px -11px #1c508d;
+  transform: translateX(120%);
+  transition: all 200ms ease-in-out;
+  &.active{
+    transform: translateY(0);
+  }
 }

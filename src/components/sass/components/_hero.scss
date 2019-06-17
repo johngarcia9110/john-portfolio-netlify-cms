@@ -7,18 +7,34 @@
   width: 100%;
   margin-bottom: 0;
   border-radius: 0;
+  @include media-breakpoint-down(md){
+    min-height: unset;
+    height: 100%;
+    max-height: calc(100vh - 75px);
+    padding-top: 10rem;
+  }
   &__text-wrap{
     position: relative;
     z-index: 2;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
+    @include media-breakpoint-down(md){
+      margin-bottom: 5rem;
+      padding: 0 1rem;
+    }
     h1{
       font-size: 3.5rem;
       text-transform: uppercase;
+      @include media-breakpoint-down(md){
+        font-size: 2.8rem;
+      }
     }
     p{
       font-size: 1.5rem;
       background: $muted-yellow;
       padding: 0 1rem;
+      @include media-breakpoint-down(md){
+        font-size: 1.2rem;
+      }
     }
   }
   .desk-svg{
@@ -32,7 +48,10 @@
     padding: 0 15px;
     z-index: 1;
     svg{
-      max-width: 100%;
+      max-width: 650px;
+      @include media-breakpoint-down(md){
+        max-width: 100%;
+      }
     }
   }
   .hex{
@@ -41,6 +60,9 @@
     //animation-iteration-count: infinite;
     //opacity: .6;
     z-index: 0;
+    @include media-breakpoint-down(md){
+      opacity: .6;
+    }
     &-top{
       top: -100px;
       left: 100px;
@@ -59,7 +81,6 @@
 }
 
 .svgHeroBtn{
-  opacity: .4;
   transform: scale(.9);
   transform-origin: center top;
   transition: all 400ms ease-in-out;
@@ -70,24 +91,9 @@
     animation: hint 2s ease-in-out;
     animation-iteration-count: infinite;
   }
-  &:hover{
-    opacity: 1;
-    cursor: pointer;
-    transform: scale(1);
-  }
+
 }
 
-@keyframes hint {
-  0%{
-    opacity: .4;
-  }
-  50%{
-    opacity: .8;
-  }
-  100%{
-    opacity: .4;
-  }
-}
 
 @keyframes hover {
   0%{
@@ -98,5 +104,54 @@
   }
   100%{
     transform: translateY(0);
+  }
+}
+
+
+#myWork{
+  transform: translateY(200px) translateX(-100px) scale(.2) rotate(30deg);
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+  &.myWorkIn{
+    transform: translateY(0) translateX(0) scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+#myAbout{
+  transform: translateY(200px) translateX(0px) scale(.2) rotate(30deg);
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+  &.myAboutIn{
+    transform: translateY(0) translateX(0) scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+#myContact{
+  transform: translateY(200px) translateX(130px) scale(.2) rotate(30deg);
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+  &.myContactIn{
+    transform: translateY(0) translateX(0) scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+#laptop, #personInChair, #myPhoneIcon{
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+
+@keyframes leftButtonIn {
+  0%{
+    transform: translateY(200px) translateX(-100px) scale(.2) rotate(30deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0) translateX(0) scale(1) rotate(0);
+    opacity: 1;
   }
 }

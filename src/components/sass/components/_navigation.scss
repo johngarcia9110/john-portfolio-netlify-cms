@@ -1,0 +1,107 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #f9f9f9;
+  width: 100%;
+  z-index: 9999;
+  border-bottom: 1px solid #dedede;
+  perspective: 1000px;
+  @include media-breakpoint-down(md){
+    padding: 0;
+  }
+  .navbar-brand{
+    a{
+      padding: 0;
+    }
+    @include media-breakpoint-down(md){
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      a{
+        max-width: 150px;
+        svg{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .navbar-item {
+    color: darken($primary-dark-blue, 30%);
+    font-size: 1.4rem;
+    padding: 0 1rem;
+    &:hover {
+      text-decoration: none;
+      color: darken($primary-dark-blue, 10%);
+    }
+  }
+}
+
+.navbar-burger{
+  width: 45px;
+  display: none;
+  border: none;
+  background: none;
+  outline: 0!important;
+  &:focus{
+    span{
+      background: $primary-dark-blue;
+    }
+  }
+  @include media-breakpoint-down(md){
+    display: block;
+  }
+  span{
+    height: 5px;
+    margin-bottom: 5px;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    background-color: $primary-blue;
+    transition: all 200ms ease-in-out;
+  }
+  &.is-active{
+    span{
+      margin-bottom: -5px;
+      transform-origin: center;
+    }
+    span:first-child{
+      transform: rotate(-45deg);
+    }
+    span:nth-child(2){
+      opacity: 0;
+    }
+    span:last-child{
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.navbar-menu{
+  @include media-breakpoint-down(md){
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateY(0) rotateX(-88deg);
+    transition: all 500ms ease-in-out;
+    z-index: -1;
+    transform-origin: top center;
+    &.is-active{
+      transform: rotateY(0deg);
+      box-shadow: 0 2px 16px -12px #204a7b, 0 51px 48px -62px #204a7b;
+    }
+    .navbar-start{
+      .navbar-item{
+        width: 100%;
+        display: inline-block;
+        padding: 1rem;
+        background: white;
+        border-bottom: 3px solid #f9f9f9;
+        opacity: 1;
+      }
+    }
+  }
+}

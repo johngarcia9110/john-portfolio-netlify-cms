@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import { FaArrowUp } from 'react-icons/fa';
 
 class ScrollTop extends Component {
     state = {
         isHidden : true
     }
     handleButtonDisplay = () => {
-        window.scrollY > 800 ?
-            this.setState({isHidden : true}) :
-            this.setState({isHidden : false});
+        console.log(window.scrollY);
+        if(window.scrollY > 800){
+            this.setState({isHidden : false})
+        }else{
+            this.setState({isHidden : true})
+        }
     }
     componentDidMount(){
         window.addEventListener('scroll', this.handleButtonDisplay);
@@ -18,10 +22,7 @@ class ScrollTop extends Component {
     render(){
         return (
             <div>
-                { this.state.isHidden && (
-                    <button className="toTop" onClick={()=>{this.props.scrollTo('hero')}}>To Top</button>
-                    )
-                }
+                <button className={this.state.isHidden ? "toTop" : "toTop active"} onClick={()=>{this.props.scrollTo('hero')}}>Top <FaArrowUp/></button>
             </div>
 
         )

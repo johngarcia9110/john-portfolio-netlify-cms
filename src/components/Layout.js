@@ -1,10 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
-
 
 
 import './all.sass'
@@ -61,6 +59,7 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:url" content="/" />
           <meta property="og:image" content="/img/og-image.jpg" />
         </Helmet>
+         <Navbar/>
         <div>{children}</div>
         <Footer />
       </div>

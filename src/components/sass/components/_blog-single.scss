@@ -1,0 +1,20 @@
+.project-title{
+  position: relative;
+  padding: 2rem 0;
+  z-index: 0;
+  background: darken($primary-blue, 20%);
+  h1{
+    color: white;
+  }
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: darken($primary-blue, 10%);
+    height: 100%;
+    z-index: -1;
+    transform: skew(0deg) rotate(0deg) translateZ(0);
+  }
+}
